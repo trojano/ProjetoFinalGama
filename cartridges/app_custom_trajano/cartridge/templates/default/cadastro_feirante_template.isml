@@ -1,0 +1,77 @@
+<isdecorate template="common/layout/page">
+  <isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addJs('/js/contactUs.js');
+    assets.addCss('/css/contactUs.css');
+  </isscript>
+
+  <div class="hero slant-down contact-us-banner">
+    <h1 class="page-title">${Resource.msg('profile.title', 'feirante', null)}</h1>
+  </div>
+
+  <div class="container contact-us-landing-page">
+    <div class="row justify-content-center">
+      <div class="col-sm-8 col-md-6">
+        <div class="card">
+          <div class="card-body">
+
+
+    <form 
+      action="${pdict.actionURL}" 
+        class="feirante-form" 
+          method="POST" 
+          <isprint value="${pdict.feiranteForm.attributes}" encoding="off" />>
+            
+            
+            <div class="row">
+              <div class="col-12">
+              <!-- Nome -->          
+                <div class="form-group 
+                ${pdict.feiranteForm.name.mandatory === true ? 'required' : ''}">
+                  <label class="form-control-label" for="name">
+                    ${Resource.msg('profile.nome', 'feirante', null)}
+                  </label>
+                  <input type="text" class="form-control" id="name" 
+                    <isprint value="${pdict.feiranteForm.name.attributes}" encoding="off" /> 
+                    autocomplete="given-name">
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <!-- Telefone -->
+                <div class="form-group 
+                ${pdict.feiranteForm.phone.mandatory === true ? 'required' : ''}">
+                  <label class="form-control-label" for="phone">
+                    ${Resource.msg('profile.telefone', 'feirante', null)}
+                  </label>
+                  <input type="tel" class="form-control" id="phone" 
+                  <isprint value="${pdict.feiranteForm.phone.attributes}" encoding="off" /> 
+                  autocomplete="tel"/>
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group 
+                ${pdict.feiranteForm.email.mandatory === true ? 'required' : ''} ${pdict.contactForm.email.htmlName}">
+                  <label class="form-control-label" for="email">
+                    ${Resource.msg('profile.email', 'feirante', null)}
+                  </label>
+                  <input type="email" class="form-control" id="email" 
+                  <isprint value="${pdict.feiranteForm.email.attributes}" encoding="off" /> 
+                  aria-describedby="emailInvalidMessage" />
+                  <div class="invalid-feedback" id="emailInvalidMessage"></div>
+                </div>
+              </div>  
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <button type="submit" name="save" class="btn btn-save btn-block btn-primary">${Resource.msg('profile.enviar', 'feirante', null)}
+                </button>
+              </div>
+            </div>
+           </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> 
+</isdecorate>
